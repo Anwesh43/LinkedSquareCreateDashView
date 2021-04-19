@@ -203,4 +203,27 @@ class SquareCreateDashView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SquareCreateDashView) {
+
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val scd : SquareCreateDash = SquareCreateDash(0)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            scd.draw(canvas, paint)
+            animator.animate {
+                scd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            scd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
