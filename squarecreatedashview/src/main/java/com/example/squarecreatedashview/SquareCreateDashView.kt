@@ -228,4 +228,12 @@ class SquareCreateDashView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : SquareCreateDashView {
+            val view : SquareCreateDashView = SquareCreateDashView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
