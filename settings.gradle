@@ -1,0 +1,3 @@
+include ':squarecreatedashview'
+include ':app'
+rootProject.name = "LinkedSquareCreateDashView"
